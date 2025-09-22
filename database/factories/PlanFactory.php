@@ -1,0 +1,19 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Status;
+use Illuminate\Database\Eloquent\Factories\Factory;
+class PlanFactory extends Factory
+{
+
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->word(),
+            'features' => $this->faker->word(),
+            'discounts' => $this->faker->randomFloat(), 
+            'status_id' => Status::inRandomOrder()->first()?->id,
+        ];
+    }
+}
